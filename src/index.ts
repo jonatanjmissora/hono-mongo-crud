@@ -9,7 +9,7 @@ try {
   await dbConnect()
   console.log('Conectado a mongo db...')
   app.route('/', appNotes)
-  status = "✔✔✔  Conectado a mongo db..."
+  status = "Conectado a mongo db  ✔✔✔"
 } catch (e) {
   console.error('dbConnect() failed:', e)
   status = `❌❌❌  Error al conectar a mongo db - URI presente: ${process.env.MONGO_URI ? 'Sí' : 'No'}  `
