@@ -1,8 +1,8 @@
 import mongoose from "mongoose"
 
 export const dbConnect = async () => {
-    const uri = String(process.env.MONGO_URI);
-    const db = String(process.env.MONGO_DB);
+    const uri = String(process.env.MONGODB_URI);
+    const db = String(process.env.MONGODB_DB);
     await mongoose.connect(uri, {
         dbName: db
     })
