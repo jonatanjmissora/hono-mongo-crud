@@ -1,6 +1,6 @@
 import { Hono } from "hono"
 import { dbConnect } from "./db/mongo-connect.js"
-import appNotes from "./routes/index.js"
+import appNotes from "./api/note/note-routes.js"
 
 const app = new Hono()
 let status = ""
@@ -9,10 +9,10 @@ try {
   await dbConnect()
   console.log('Conectado a mongo db...')
   app.route('/', appNotes)
-  status = "Conectado a mongo db  ✔✔✔"
+  status = "Conectado a mongo db  ✔"
 } catch (e) {
   console.error('dbConnect() failed:', e)
-  status = `❌❌❌  Error al conectar a mongo db - URI presente: ${process.env.MONGO_URI ? 'Sí' : 'No'}  `
+  status = `❌  Error al conectar a mongo db - URI presente: ${process.env.MONGO_URI ? 'Sí' : 'No'}  `
 }
 
 const welcome = `

@@ -1,6 +1,6 @@
 import { Context } from "hono";
 import { isValidObjectId } from "mongoose";
-import NoteModel from "../db/note-model.js";
+import NoteModel from "./note-model.js";
 
 // GET ALL NOTES
 export const getAllNotes = async (c: Context) => {

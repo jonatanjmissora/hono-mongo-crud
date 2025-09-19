@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
 import { poweredBy } from 'hono/powered-by'; 
 import { logger } from 'hono/logger';
-import { getAllNotes, getNoteById, createNote, updateNote, deleteNote } from '../controllers/note-controllers.js';
-import { zNoteValidator } from '../db/note-validator.js';
+import { getAllNotes, getNoteById, createNote, updateNote, deleteNote } from './note-controllers.js';
+import { zNoteValidator } from './note-validator.js';
 
 const appNotes = new Hono().basePath('/notes')
 appNotes.use(poweredBy())
