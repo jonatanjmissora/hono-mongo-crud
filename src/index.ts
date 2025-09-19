@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { dbConnect } from "./db/mongo-connect.js"
 import appNotes from "./api/note/note-routes.js"
 import appUsers from "./api/user/user-routes.js"
+import appAuth from "./api/auth/auth-routes.js"
 
 const app = new Hono()
 let status = ""
@@ -11,6 +12,7 @@ try {
   console.log('Conectado a mongo db...')
   app.route('/', appNotes)
   app.route('/', appUsers)
+  app.route('/', appAuth)
   status = "Conectado a mongo db  ✔"
 } catch (e) {
   console.error('dbConnect() failed:', e)
